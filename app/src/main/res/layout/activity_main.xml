@@ -16,6 +16,14 @@
         style="@style/Common_CutLine"/>
 
     <TextView
+        android:id="@+id/tvSaveByFileOutputStream"
+        style="@style/Common_Button"
+        android:text="Save By FileOutputStream"/>
+
+    <View
+        style="@style/Common_CutLine"/>
+
+    <TextView
         android:id="@+id/tvSaveByFileOutput"
         style="@style/Common_Button"
         android:text="Save By FileOutput"/>

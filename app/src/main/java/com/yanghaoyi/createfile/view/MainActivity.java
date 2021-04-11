@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvSaveByFileOutput;
     /** 通过AccessFile保存按钮 **/
     private TextView tvSaveByAccessFile;
+    /** 通过FileOutputStream保存按钮 **/
+    private TextView tvSaveByFileOutputStream;
     /** 创建文件夹按钮 **/
     private TextView tvCreateDir;
     /** 文件逻辑控制中心 **/
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /** 视图初始化 **/
     private void initView(){
         tvCreateDir = findViewById(R.id.tvCreateDir);
+        tvSaveByFileOutputStream = findViewById(R.id.tvSaveByFileOutputStream);
         tvSaveByFileOutput = findViewById(R.id.tvSaveByFileOutput);
         tvSaveByAccessFile = findViewById(R.id.tvSaveByAccessFile);
     }
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initEvent(){
         filePresenter = new FilePresenter(this);
         tvCreateDir.setOnClickListener(this);
+        tvSaveByFileOutputStream.setOnClickListener(this);
         tvSaveByFileOutput.setOnClickListener(this);
         tvSaveByAccessFile.setOnClickListener(this);
     }
@@ -69,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.tvCreateDir:
                 filePresenter.makeDirs();
+                break;
+            case R.id.tvSaveByFileOutputStream:
+                filePresenter.writeFileByFileOutputStream();
                 break;
             case R.id.tvSaveByFileOutput:
                 filePresenter.writeFileByFileOutput();
